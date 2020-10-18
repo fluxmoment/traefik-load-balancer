@@ -17,6 +17,10 @@ http:
   services:
     service-myapp:
       loadBalancer:
+        sticky:
+          cookie:
+            name: t_server
+            secure: true
         servers:
           - url: https://myapp.herokuapp.com
           - url: https://myapp-2.herokuapp.com
