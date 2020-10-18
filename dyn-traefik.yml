@@ -1,0 +1,22 @@
+http:
+  routers:
+    router-myapp:
+      rule: "Host(`myapp.example.com`)"
+      middlewares:
+        - herokuHeader
+      service: service-myapp
+      tls:
+        certResolver: myresolver
+
+  middlewares:
+    herokuHeader:
+      headers:
+        customRequestHeaders:
+          Host: "myapp.herokuapp.com"
+
+  services:
+    service-myapp:
+      loadBalancer:
+        servers:
+          - url: https://myapp.herokuapp.com
+          - url: https://myapp-2.herokuapp.com
