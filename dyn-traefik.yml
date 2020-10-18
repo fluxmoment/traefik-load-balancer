@@ -21,10 +21,10 @@ http:
           cookie:
             name: t_server
             secure: true
-         healthCheck:
-            path: /
-            interval: "10s"
-            timeout: "3s"
+        healthCheck:
+          path: /
+          interval: "10s"
+          timeout: "3s"
         servers:
           - url: https://myapp.herokuapp.com
           - url: https://myapp-2.herokuapp.com
